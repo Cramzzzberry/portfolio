@@ -1,0 +1,86 @@
+.wrapper {
+  height: calc(100vh - 3.563rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 1px;
+}
+
+.introduction {
+  /* relative flex justify-center items-center */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transform-style: preserve-3d;
+}
+
+.intro-img {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.intro-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-weight: 900;
+  transform: translateZ(-0.375px) scale(1.376);
+}
+
+.salutation {
+  position: absolute;
+  color: #bfe8e0;
+}
+
+.name {
+  position: absolute; 
+  width: 1000px;
+  text-align: right;
+  line-height: 0.875;
+  color: transparent;
+  background-clip: text;
+  font-size: 12rem;
+  background-image: linear-gradient(to bottom, #bfe8e0, #3d484f);
+}
+
+.tree-1 {
+  transform: translateZ(-0.25px) scale(1.26);
+}
+
+.tree-2 {
+  transform: translateZ(-0.5px) scale(1.51);
+}
+
+.tree-3 {
+  transform: translateZ(-0.75px) scale(1.76);
+}
+
+.mountain-1 {
+  transform: translateZ(-1px) scale(2.01);
+}
+
+.mountain-2 {
+  transform: translateZ(-1.25px) scale(2.26);
+}
+
+.mountain-3 {
+  transform: translateZ(-1.5px) scale(2.51);
+}
+
+.tall-mountain-1 {
+  transform: translateZ(-1.75px) scale(2.77);
+}
+
+.tall-mountain-2 {
+  transform: translateZ(-2px) scale(3.01);
+}
+
+.tall-mountain-3 {
+  transform: translateZ(-2.25px) scale(3.26);
+}

@@ -22,7 +22,7 @@
   }
   
   html, body {
-    @apply font-[Inter] font-medium bg-gray-950 text-gray-200;
+    @apply  p-0 m-0 font-[Inter] font-medium text-gray-200;
   }
 
   a {
