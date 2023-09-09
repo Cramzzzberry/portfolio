@@ -1,16 +1,18 @@
 <script setup>
 import { reactive } from 'vue';
+import almostMaterialImg from '@/assets/images/projects/almost-material.png';
+import wordxImg from '@/assets/images/projects/wordx.png';
 
 const projectItems = reactive([
   {
     title: "Almost Material UI",
-    imgsrc: "/almost-material.png",
+    imgsrc: almostMaterialImg,
     desc: "A Tailwind CSS Plugin heavily based on Material Design 3.",
     url: "https://cramzzzberry.github.io/almost-material/home",
   },
   {
     title: "WordX",
-    imgsrc: "/wordx.png",
+    imgsrc: wordxImg,
     desc: "A very basic online dictionary. Words are requested from Free Dictionary API.",
     url: "https://wordx.vercel.app/",
   },
