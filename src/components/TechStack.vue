@@ -1,49 +1,51 @@
 <template>
   <div class="ts-wrapper" id="tech-stack">
-    <span class="heading"><b>My Tech Stack</b></span>
+    <div class="hideFromRight">
+      <span class="heading"><b>My Tech Stack</b></span>
 
-    <div class="table">
-      <div>
-        <h2>Frontend Frameworks</h2>
-        <ul>
-          <li>
-            <i class="ci ci-angular ci-2x"></i>
-            Angular
-          </li>
-          <li>
-            <i class="ci ci-vuejs ci-2x"></i>
-            Vue.js
-          </li>
-          <li>
-            <i class="ci ci-nextjs ci-2x"></i>
-            Next.js
-          </li>
-        </ul>
+      <div class="table">
+        <div>
+          <h2>Frontend Frameworks</h2>
+          <ul>
+            <li>
+              <i class="ci ci-angular ci-2x"></i>
+              Angular
+            </li>
+            <li>
+              <i class="ci ci-vuejs ci-2x"></i>
+              Vue.js
+            </li>
+            <li>
+              <i class="ci ci-nextjs ci-2x"></i>
+              Next.js
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2>CSS Frameworks</h2>
+          <ul>
+            <li>
+              <i class="ci ci-tailwindcss ci-2x"></i>
+              Tailwind CSS
+            </li>
+            <li>
+              <i class="ci ci-bootstrap ci-2x"></i>
+              Bootstrap
+            </li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h2>CSS Frameworks</h2>
-        <ul>
-          <li>
-            <i class="ci ci-tailwindcss ci-2x"></i>
-            Tailwind CSS
-          </li>
-          <li>
-            <i class="ci ci-bootstrap ci-2x"></i>
-            Bootstrap
-          </li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="others">
-      <h2>Others</h2>
-      <div>
-        <i class="ci ci-html ci-4x"></i>
-        <i class="ci ci-css ci-4x"></i>
-        <i class="ci ci-js ci-4x"></i>
-        <i class="ci ci-ts ci-4x"></i>
-        <i class="ci ci-react ci-4x"></i>
-        <i class="ci ci-git ci-4x"></i>
+      <div class="others">
+        <h2>Others</h2>
+        <div>
+          <i class="ci ci-html ci-4x"></i>
+          <i class="ci ci-css ci-4x"></i>
+          <i class="ci ci-js ci-4x"></i>
+          <i class="ci ci-ts ci-4x"></i>
+          <i class="ci ci-react ci-4x"></i>
+          <i class="ci ci-git ci-4x"></i>
+        </div>
       </div>
     </div>
   </div>
@@ -51,13 +53,17 @@
 
 <style scoped>
 .ts-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: #222222;
-  min-height: calc(100vh - 3.75rem - 8rem);
+  height: calc(100vh - 3.75rem - 8rem);
   padding: 4rem 12rem;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
 }
 
 ul {

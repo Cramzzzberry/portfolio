@@ -1,9 +1,11 @@
 <template>
   <div class="am-wrapper" id="about-me">
-    <span><b>Hello!</b></span>
-    <div>
-      <p>I am Jan Roe Bantuan, a frontend web developer. I create</p>
-      <p class="tagline">SIMPLE BUT IMPACTFUL DESIGN.</p>
+    <div class="hideFromRight">
+      <span><b>Hello!</b></span>
+      <div>
+        <p>I am Jan Roe Bantuan, a frontend web developer. I create</p>
+        <p class="tagline">SIMPLE BUT IMPACTFUL DESIGN.</p>
+      </div>
     </div>
   </div>
 </template>
@@ -18,7 +20,7 @@
   padding: 0 12rem;
   font-size: 1.5rem;
 
-  & > span:first-child {
+  & > div > span:first-child {
     font-size: 3rem;
     color: var(--primary-500);
   }

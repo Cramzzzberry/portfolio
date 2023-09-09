@@ -19,18 +19,20 @@ const projectItems = reactive([
 
 <template>
   <div class="mp-wrapper" id="my-projects">
-    <div class="heading"><b>My Projects</b></div>
-    <div class="project-list">
-      <template v-for="(item, index) in projectItems" :key="item.title">
-        <a :href="item.url" class="project-item" target="_blank">
-          <img :src="item.imgsrc" class="project-img">
-          <div class="project-description">
-            <div class="title"><b>{{ item.title }}</b></div>
-            <p>{{ item.desc }}</p>
-          </div>
-        </a>
-        <hr v-if="index+1 != projectItems.length">
-      </template>
+    <div class="hideFromRight">
+      <div class="heading"><b>My Projects</b></div>
+      <div class="project-list">
+        <template v-for="(item, index) in projectItems" :key="item.title">
+          <a :href="item.url" class="project-item" target="_blank">
+            <img :src="item.imgsrc" class="project-img">
+            <div class="project-description">
+              <div class="title"><b>{{ item.title }}</b></div>
+              <p>{{ item.desc }}</p>
+            </div>
+          </a>
+          <hr v-if="index+1 != projectItems.length">
+        </template>
+      </div>
     </div>
   </div>
 </template>
@@ -49,12 +51,12 @@ hr {
 .heading {
   font-size: 3rem;
   color: var(--primary-500);
-  margin-bottom: 1rem;
 }
 
 .project-list {
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
 
   & > .project-item {
     display: flex;

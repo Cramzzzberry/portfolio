@@ -1,24 +1,74 @@
 <script setup>
-import { reactive } from 'vue';
+import { onMounted, reactive } from 'vue';
 
 const navLinks = reactive([
   {
     text: "About Me",
     url: "#about-me",
+    id: "about-me-link",
   },
   {
     text: "Tech Stack",
     url: "#tech-stack",
+    id: "tech-stack-link",
   },
   {
     text: "My Projects",
     url: "#my-projects",
+    id: "my-projects-link",
   },
   {
     text: "Contact Me",
     url: "#contact-me",
+    id: "contact-me-link",
   },
 ]);
+
+onMounted(() => {
+  var aboutMeContent = document.getElementById('about-me');
+  var aboutMeLink = document.getElementById('about-me-link');
+  var techStackContent = document.getElementById('tech-stack');
+  var techStackLink = document.getElementById('tech-stack-link');
+  var myProjectsContent = document.getElementById('my-projects');
+  var myProjectsLink = document.getElementById('my-projects-link');
+  var contactMeContent = document.getElementById('contact-me');
+  var contactMeLink = document.getElementById('contact-me-link');
+
+  var wrapper = document.getElementsByClassName('wrapper')[0];
+  var windowHeight = window.innerHeight;
+  var visibility = window.innerHeight/4;
+  
+  wrapper.addEventListener('scroll', () => {
+    let aboutMeContentY = (aboutMeContent.getBoundingClientRect().top + aboutMeContent.getBoundingClientRect().bottom)/2;
+    let techStackContentY = (techStackContent.getBoundingClientRect().top + techStackContent.getBoundingClientRect().bottom)/2;
+    let myProjectsContentY = (myProjectsContent.getBoundingClientRect().top + myProjectsContent.getBoundingClientRect().bottom)/2;
+    let contactMeContentY = (contactMeContent.getBoundingClientRect().top + contactMeContent.getBoundingClientRect().bottom)/2;
+
+    if (aboutMeContentY < windowHeight - visibility && aboutMeContentY > -windowHeight) {
+      aboutMeLink.classList.add('active');
+    } else {
+      aboutMeLink.classList.remove('active');
+    }
+
+    if (techStackContentY < windowHeight - visibility && techStackContentY > -windowHeight) {
+      techStackLink.classList.add('active');
+    } else {
+      techStackLink.classList.remove('active');
+    }
+
+    if (myProjectsContentY < windowHeight - visibility && myProjectsContentY > -windowHeight) {
+      myProjectsLink.classList.add('active');
+    } else {
+      myProjectsLink.classList.remove('active');
+    }
+
+    if (contactMeContentY < windowHeight - visibility && contactMeContentY > -windowHeight) {
+      contactMeLink.classList.add('active');
+    } else {
+      contactMeLink.classList.remove('active');
+    }
+  })
+});
 </script>
 
 <template>
@@ -28,8 +78,8 @@ const navLinks = reactive([
       GitHub
     </a>
     <ul>
-      <li v-for="link in navLinks" :key="link.text">
-        <a :href="link.url">{{ link.text }}</a>
+      <li v-for="link in navLinks" :key="link.id">
+        <a :href="link.url" :id="link.id">{{ link.text }}</a>
       </li>
     </ul>
   </div>
@@ -59,6 +109,10 @@ ul, ol {
     & > li > a {
       display: block;
       padding: 0.25rem 1rem;
+
+      &.active {
+        color: var(--gray-200);
+      }
     }
   }
 }
