@@ -6,12 +6,13 @@
     
     <!-- mountains -->
     <img src="../assets/images/Mountain-2.webp" alt="" class="mountain-2 intro-img">
-    <img src="../assets/images/Mountain-1.webp" alt="" class="mountain-1 intro-img">
 
     <div class="intro-text">
       <p class="dev-position">FRONTEND DEVELOPER</p>
       <p class="name">JAN ROE BANTUAN</p>
     </div>
+
+    <img src="../assets/images/Mountain-1.webp" alt="" class="mountain-1 intro-img">
     
     <!-- tree -->
     <img src="../assets/images/Tree-2.webp" alt="" class="tree-2 intro-img">
@@ -44,32 +45,25 @@
   width: 100%;
   height: 100%;
   font-weight: 900;
-  transform: translateZ(-0.125px) scale(1.125);
+  transform: translateZ(-0.77px) scale(1.81);
   pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  color: #c0e8e1;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
 }
 
 .dev-position {
-  position: absolute;
-  color: #bfe8e0;
   font-size: 2rem;
-  bottom: 24rem;
-  right: 18.5%;
+  margin-left: 12rem;
 }
 
 .name {
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  position: absolute; 
-  width: 1000px;
-  text-align: right;
-  line-height: 0.875;
-  color: transparent;
-  background-clip: text;
+  line-height: 0.8;
   font-size: 12rem;
-  background-image: linear-gradient(to bottom, #bfe8e0, #3d484f);
-  bottom: 3rem;
-  right: 18%;
+  margin-left: 12rem;
 }
 
 .tree-1 {
@@ -94,5 +88,75 @@
 
 .tall-mountain-2 {
   transform: translateZ(-2.25px) scale(3.26);
+}
+
+@media only screen and (max-width: 1536px) {
+  .name {
+    font-size: 10rem;
+  }
+  .dev-position {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .intro-text {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .dev-position {
+    font-size: 2rem;
+    margin-left: 0;
+  }
+
+  .name {
+    line-height: 0.875;
+    font-size: 12rem;
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .dev-position {
+    font-size: 1.5rem;
+  }
+
+  .name {
+    font-size: 8rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .dev-position {
+    font-size: 1.25rem;
+  }
+
+  .name {
+    font-size: 6rem;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+
+  .dev-position {
+    font-size: 1rem;
+  }
+
+  .name {
+    font-size: 4rem;
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .name {
+    font-size: 3rem;
+    width: 90%;
+  }
 }
 </style>

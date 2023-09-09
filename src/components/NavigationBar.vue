@@ -75,7 +75,7 @@ onMounted(() => {
   <div class="navbar">
     <a href="https://github.com/Cramzzzberry" target="_blank" class="github-button">
       <font-awesome-icon icon="fa-brands fa-github" />
-      GitHub
+      <span>GitHub</span>
     </a>
     <ul>
       <li v-for="link in navLinks" :key="link.id">
@@ -101,6 +101,7 @@ ul, ol {
   padding: 1rem 12rem;
   border-bottom: 1px solid var(--gray-800);
   background-color: var(--gray-950);
+  height: calc(3.75rem - 2rem);
 
   & > ul {
     display: flex;
@@ -126,5 +127,21 @@ ul, ol {
 
 .fa-github {
   font-size: 1.25rem;
+}
+
+@media only screen and (max-width: 1280px) {
+  .navbar {
+    padding: 1rem 5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    padding: 1rem 2rem;
+
+    & > ul {
+      display: none;
+    }
+  }
 }
 </style>
