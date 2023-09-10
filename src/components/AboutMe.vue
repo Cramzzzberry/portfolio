@@ -1,6 +1,6 @@
 <template>
-  <div class="am-wrapper">
-    <div class="hideFromRight" id="about-me">
+  <div class="am-wrapper" id="about-me">
+    <div class="hideFromRight">
       <span><b>Hello!</b></span>
       <div>
         <p>I am Jan Roe Bantuan, a frontend web developer. I create</p>
