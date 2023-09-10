@@ -34,35 +34,38 @@ onMounted(() => {
   var contactMeContent = document.getElementById('contact-me');
   var contactMeLink = document.getElementById('contact-me-link');
 
-  var wrapper = document.getElementsByClassName('wrapper')[0];
   var windowHeight = window.innerHeight;
-  var visibility = window.innerHeight/4;
-  
-  wrapper.addEventListener('scroll', () => {
-    let aboutMeContentY = (aboutMeContent.getBoundingClientRect().top + aboutMeContent.getBoundingClientRect().bottom)/2;
-    let techStackContentY = (techStackContent.getBoundingClientRect().top + techStackContent.getBoundingClientRect().bottom)/2;
-    let myProjectsContentY = (myProjectsContent.getBoundingClientRect().top + myProjectsContent.getBoundingClientRect().bottom)/2;
-    let contactMeContentY = (contactMeContent.getBoundingClientRect().top + contactMeContent.getBoundingClientRect().bottom)/2;
+  var visibility = (window.innerHeight/4) * 3;
 
-    if (aboutMeContentY < windowHeight - visibility && aboutMeContentY > -windowHeight) {
+  function isInView(value) {
+    return value < windowHeight - visibility && value > -windowHeight/2
+  }
+  
+  window.addEventListener('scroll', () => {
+    let aboutMeContentY = aboutMeContent.getBoundingClientRect().top;
+    let techStackContentY = techStackContent.getBoundingClientRect().top;
+    let myProjectsContentY = myProjectsContent.getBoundingClientRect().top;
+    let contactMeContentY = contactMeContent.getBoundingClientRect().top;
+
+    if (isInView(aboutMeContentY)) {
       aboutMeLink.classList.add('active');
     } else {
       aboutMeLink.classList.remove('active');
     }
 
-    if (techStackContentY < windowHeight - visibility && techStackContentY > -windowHeight) {
+    if (isInView(techStackContentY)) {
       techStackLink.classList.add('active');
     } else {
       techStackLink.classList.remove('active');
     }
 
-    if (myProjectsContentY < windowHeight - visibility && myProjectsContentY > -windowHeight) {
+    if (isInView(myProjectsContentY)) {
       myProjectsLink.classList.add('active');
     } else {
       myProjectsLink.classList.remove('active');
     }
 
-    if (contactMeContentY < windowHeight - visibility && contactMeContentY > -windowHeight) {
+    if (isInView(contactMeContentY)) {
       contactMeLink.classList.add('active');
     } else {
       contactMeLink.classList.remove('active');
@@ -77,11 +80,25 @@ onMounted(() => {
       <font-awesome-icon icon="fa-brands fa-github" />
       <span>GitHub</span>
     </a>
-    <ul>
+    <ul class="links">
       <li v-for="link in navLinks" :key="link.id">
         <a :href="link.url" :id="link.id">{{ link.text }}</a>
       </li>
     </ul>
+
+    <label class="drawer-btn" for="drawer">
+      <span class="material-icons">menu</span>
+    </label>
+
+    <!-- drawer -->
+    <input type="checkbox" id="drawer">
+    <label class="drawer-container" for="drawer">
+      <ul class="drawer">
+        <li v-for="link in navLinks" :key="link.id">
+          <a :href="link.url" :id="link.id">{{ link.text }}</a>
+        </li>
+      </ul>
+    </label>
   </div>
 </template>
 
@@ -92,7 +109,68 @@ ul, ol {
   padding: 0;
 }
 
+.drawer-container {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  top: 3.75rem;
+  right: 0;
+  z-index: 1;
+  width: 100vw;
+  height: calc(100vh - 3.75rem);
+  max-width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-x: hidden;
+  opacity: 0;
+  transition: 300ms opacity cubic-bezier(0.4, 0, 0.2, 1), 0ms visibility 300ms;
+}
+ul.drawer {
+  font-size: 2rem;
+  font-weight: 600;
+  position: absolute;
+  right: calc(26rem * -1);
+  width: calc(26rem - 8rem);
+  height: calc(100vh - 3.75rem - 8rem);
+  padding: 4rem;
+  background-color: var(--gray-950);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: 300ms right cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type='checkbox']#drawer {
+  top: -10rem;
+  position: absolute;
+
+  &:checked+.drawer-container {
+    opacity: 1;
+    visibility: visible;
+    transition: 300ms opacity cubic-bezier(0.4, 0, 0.2, 1), 0ms visibility 0ms;
+    & > .drawer {
+      right: 0%;
+    }
+  }
+}
+
+.drawer-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin: 0.25rem 0;
+  color: var(--gray-400);
+  transition: 150ms color;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--gray-200);
+  }
+}
+
 .navbar {
+  position: fixed;
+  top: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -102,14 +180,16 @@ ul, ol {
   border-bottom: 1px solid var(--gray-800);
   background-color: var(--gray-950);
   height: calc(3.75rem - 2rem);
+  z-index: 1;
+  width: calc(100% - 24rem);
 
-  & > ul {
+  & > ul.links {
     display: flex;
     flex-direction: row;
 
     & > li > a {
       display: block;
-      padding: 0.25rem 1rem;
+      margin: 0.25rem 1rem;
 
       &.active {
         color: var(--gray-200);
@@ -132,16 +212,32 @@ ul, ol {
 @media only screen and (max-width: 1280px) {
   .navbar {
     padding: 1rem 5rem;
+    width: calc(100% - 10rem);
   }
 }
 
 @media only screen and (max-width: 768px) {
+  .drawer-btn {
+    display: flex;
+  }
+
+  .drawer-container {
+    display: block;
+  }
+
   .navbar {
     padding: 1rem 2rem;
+    width: calc(100% - 4rem);
 
-    & > ul {
+    & > ul.links {
       display: none;
     }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  ul.drawer {
+    width: calc(100vw - 8rem);
   }
 }
 </style>

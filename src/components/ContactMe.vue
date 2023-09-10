@@ -5,8 +5,8 @@ const api = ref(import.meta.env.VITE_ACTION_URL);
 
 <template>
   <div class="cm-wrapper">
-    <div class="hideFromRight">
-      <div class="header" id="contact-me"><b>Contact Me</b></div>
+    <div class="hideFromRight" id="contact-me">
+      <div class="header"><b>Contact Me</b></div>
       <div class="two-cols">
         <form :action="api" method="POST">
           <input 
@@ -18,13 +18,14 @@ const api = ref(import.meta.env.VITE_ACTION_URL);
             class="form-input" 
             name="message" 
             placeholder="Message" 
-            rows="10"
             ></textarea>
           <button type="submit">Send Message</button>
         </form>
         <div class="other-section">
-          <h3><b>My Phone Number</b></h3>
-          <p>+63 976 427 4122</p>
+          <div class="phone-num">
+            <h3><b>My Phone Number</b></h3>
+            <p>+63 976 427 4122</p>
+          </div>
 
           <div class="socials">
             <h3><b>My Socials</b></h3>
@@ -48,6 +49,7 @@ h3 {
   padding: 0;
   margin: 0 0 1rem 0;
 }
+
 .cm-wrapper {
   display: flex;
   flex-direction: column;
@@ -57,11 +59,15 @@ h3 {
   padding: 4rem 12rem 0;
   font-size: 1.5rem;
 
-  & > div > div:first-child {
+  & > div > div.header {
     margin-bottom: 1rem;
     font-size: 3rem;
     color: var(--primary-500);
   }
+}
+
+form > textarea {
+  min-height: 10rem;
 }
 
 .two-cols {
@@ -77,7 +83,7 @@ h3 {
 
     & > button {
       font-family: "Inter";
-      font-size: 1rem;
+      font-size: 1.25rem;
       padding: 1rem;
       outline: none;
       background-color: var(--primary-500);
@@ -101,8 +107,7 @@ h3 {
     justify-content: center;
     text-align: center;
 
-    & > p {
-      font-size: 1rem;
+    & > .phone-num > p {
       margin-bottom: 2rem;
       color: var(--primary-500);
       font-size: 1.5rem;
@@ -140,6 +145,108 @@ h3 {
 
   &:focus {
     border: 1px solid var(--primary-700);
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .cm-wrapper {
+    padding: 4rem 5rem 0;
+
+    & > div > div.header {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .cm-wrapper {
+    font-size: 1.25rem;
+  }
+
+  .form-input {
+    font-size: 1rem;
+  }
+
+  .two-cols {
+    gap: 0;
+
+    & > form {
+      & > button {
+        font-size: 1rem;
+      }
+    }
+
+    & > .other-section {
+      & > .phone-num > p {
+        font-size: 1.25rem;
+      }
+
+      & > .socials {
+        & > div {
+          & > a {
+            font-size: 1.75rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .cm-wrapper {
+    font-size: 1rem;
+  }
+
+  .two-cols {
+    display: flex;
+    flex-direction: column;
+
+    & > form {
+      flex-basis: 0;
+      & > button {
+        font-size: 1rem;
+      }
+    }
+
+    & > .other-section {
+      margin-top: 2rem;
+      flex-basis: 0;
+      align-items: flex-start;
+      justify-content: space-around;
+      flex-direction: row;
+
+      & > .phone-num > p {
+        font-size: 1rem;
+        margin-bottom: 0;
+      }
+
+      & > .socials {
+        margin-top: 0;
+
+        & > div {
+          & > a {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .cm-wrapper {
+    font-size: 1rem;
+  }
+
+  .two-cols {
+    & > .other-section {
+      margin-top: 2rem;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 }
 </style>
