@@ -6,14 +6,14 @@ import AboutMe from './components/AboutMe.vue';
 import TechStack from './components/TechStack.vue';
 import MyProjects from './components/MyProjects.vue';
 import ContactMe from './components/ContactMe.vue';
+import ScrollUpBtn from './components/ui/ScrollUpBtn.vue';
 
 onMounted(() => {
-  var wrapper = document.getElementsByClassName('wrapper')[0];
   var elements = document.querySelectorAll('.hideFromRight');
   var windowHeight = window.innerHeight;
-  var visibility = window.innerHeight/4;
+  var visibility = window.innerHeight/3;
 
-  wrapper.addEventListener('scroll', () => {
+  window.addEventListener('scroll', () => {
     for (var i = 0; i < elements.length; i++) {
       var yPosTop = elements[i].getBoundingClientRect().top;
       var yPosCenter = (elements[i].getBoundingClientRect().top + elements[i].getBoundingClientRect().bottom)/2;
@@ -24,23 +24,19 @@ onMounted(() => {
         elements[i].classList.remove('show');
       }
     }
-  })
+  });
 });
 </script>
 
 <template>
   <NavigationBar />
-  <div class="wrapper">
-    <IntroBlock />
-    <div class="spacer-block gradient"></div>
-    <AboutMe />
-    <div class="spacer-block"></div>
-    <TechStack />
-    <div class="spacer-block"></div>
-    <MyProjects />
-    <div class="spacer-block"></div>
-    <ContactMe />
-  </div>
+  <IntroBlock />
+  <div class="spacer-block gradient"></div>
+  <AboutMe />
+  <TechStack />
+  <MyProjects />
+  <ContactMe />
+  <ScrollUpBtn />
 </template>
 
 <style scoped>
@@ -51,14 +47,5 @@ onMounted(() => {
 
 .gradient {
   background-image: linear-gradient(to bottom, #17232d, #222222);
-}
-
-.wrapper {
-  height: calc(100vh - 3.75rem);
-  overflow-y: auto;
-  overflow-x: hidden;
-  perspective: 1px;
-  background-image: linear-gradient(to bottom, #8fbed0, white);
-  scroll-behavior: smooth;
 }
 </style>
