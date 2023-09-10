@@ -196,6 +196,7 @@ form > textarea {
 @media only screen and (max-width: 768px) {
   .cm-wrapper {
     font-size: 1rem;
+    padding: 4rem 2rem 0;
   }
 
   .two-cols {
