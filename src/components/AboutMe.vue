@@ -4,7 +4,7 @@
       <span><b>Hello!</b></span>
       <div>
         <p>I am Jan Roe Bantuan, a frontend web developer. I create</p>
-        <p class="tagline">SIMPLE BUT IMPACTFUL DESIGN.</p>
+        <p class="tagline">SIMPLE BUT IMPACTFUL DESIGNS.</p>
       </div>
     </div>
   </div>

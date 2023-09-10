@@ -18,6 +18,7 @@ onMounted(() => window.addEventListener('scroll', () => {
   introText.value.style.top = scrollDis * 0.44 + 'px';
   mountain1.value.style.top = scrollDis * 0.36 + 'px';
   tree2.value.style.top = scrollDis * 0.28 + 'px';
+  tree1.value.style.top = scrollDis * 0.16 + 'px';
 }))
 </script>
 
@@ -73,8 +74,8 @@ onMounted(() => window.addEventListener('scroll', () => {
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  color: #c0e8e1;
-  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  color: #cdf5ee;
+  filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.175));
 }
 
 .dev-position {
