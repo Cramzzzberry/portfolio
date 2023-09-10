@@ -56,4 +56,11 @@ button {
     opacity: 1;
   }
 }
+
+@media only screen and (max-width: 640px) {
+  button {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
 </style>

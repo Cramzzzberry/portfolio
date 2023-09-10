@@ -1,6 +1,6 @@
 <template>
-  <div class="ts-wrapper">
-    <div class="hideFromRight" id="tech-stack">
+  <div class="ts-wrapper" id="tech-stack">
+    <div class="hideFromRight">
       <span class="heading"><b>My Tech Stack</b></span>
 
       <div class="table">

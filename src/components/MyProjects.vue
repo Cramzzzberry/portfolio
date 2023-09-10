@@ -20,8 +20,8 @@ const projectItems = reactive([
 </script>
 
 <template>
-  <div class="mp-wrapper">
-    <div class="hideFromRight" id="my-projects">
+  <div class="mp-wrapper" id="my-projects">
+    <div class="hideFromRight">
       <div class="heading"><b>My Projects</b></div>
       <div class="project-list">
         <template v-for="(item, index) in projectItems" :key="item.title">

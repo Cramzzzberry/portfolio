@@ -4,8 +4,8 @@ const api = ref(import.meta.env.VITE_ACTION_URL);
 </script>
 
 <template>
-  <div class="cm-wrapper">
-    <div class="hideFromRight" id="contact-me">
+  <div class="cm-wrapper" id="contact-me">
+    <div class="hideFromRight">
       <div class="header"><b>Contact Me</b></div>
       <div class="two-cols">
         <form :action="api" method="POST">
