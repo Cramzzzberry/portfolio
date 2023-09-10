@@ -12,13 +12,13 @@ const tree1 = ref(null);
 onMounted(() => window.addEventListener('scroll', () => {
   let scrollDis = window.scrollY;
 
-  tallMountain2.value.style.top = scrollDis * 0.84 + 'px';
-  tallMountain1.value.style.top = scrollDis * 0.68 + 'px';
-  mountain2.value.style.top = scrollDis * 0.52 + 'px';
-  introText.value.style.top = scrollDis * 0.44 + 'px';
-  mountain1.value.style.top = scrollDis * 0.36 + 'px';
-  tree2.value.style.top = scrollDis * 0.28 + 'px';
-  tree1.value.style.top = scrollDis * 0.16 + 'px';
+  tallMountain2.value.style.transform = `translateY(${ scrollDis * 0.84 }px)`;
+  tallMountain1.value.style.transform = `translateY(${ scrollDis * 0.68 }px)`;
+  mountain2.value.style.transform = `translateY(${ scrollDis * 0.52 }px)`;
+  introText.value.style.transform = `translateY(${ scrollDis * 0.44 }px)`;
+  mountain1.value.style.transform = `translateY(${ scrollDis * 0.36 }px)`;
+  tree2.value.style.transform = `translateY(${ scrollDis * 0.28 }px)`;
+  tree1.value.style.transform = `translateY(${ scrollDis * 0.16 }px)`;
 }))
 </script>
 
