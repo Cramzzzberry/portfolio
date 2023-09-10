@@ -68,7 +68,7 @@ a {
 
 /* classes and ids */
 .hideFromRight {
-  transform: translateX(150px);
+  transform: translateX(30px);
   opacity: 0;
   transition: 0.3s transform cubic-bezier(0.4, 0, 0.2, 1), 0.3s opacity cubic-bezier(0.4, 0, 0.2, 1);
 
